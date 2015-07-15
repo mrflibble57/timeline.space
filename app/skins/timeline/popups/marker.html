@@ -1,0 +1,10 @@
+<modal-header>Edit Marker</modal-header>
+<div class="modalBody">
+    <label>Label</label>
+    <input type="text" ng-model="marker.label" style="width: 250px" focus>
+</div>
+<div class="modalFooter">
+    <image-button img="okay" ng-click="complete(marker)">{{language.okay}}</image-button>
+    <image-button img="delete" ng-click="remove(marker)">Delete</image-button>
+    <image-button img="cancel" ng-click="$close()">Cancel</image-button>
+</div>

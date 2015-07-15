@@ -1,0 +1,31 @@
+<modal-header>Select Tags</modal-header>
+<div class="modalBody">
+    <table class="small">
+        <thead>
+        <tr>
+            <th>Select</th>
+            <th>Key</th>
+            <th>Colour</th>
+            <th>Label</th>
+            <th ng-show="editing">Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tag in tags">
+            <td><input type="checkbox" ng-model="tag.selected" ng-hide="tag.unselectable" /></td>
+            <td><input ng-show="top" type="text" maxlength="1" ng-model="tag.key" style="width: 10px" ng-focus="select(tag)" /><span ng-show="!top">{{tag.key}}</span></td>
+            <td><colour-picker colour="tag.colour" ng-click="select(tag)"></colour-picker></td>
+            <td><input type="text" ng-model="tag.label" style="width: 120px" ng-focus="select(tag)" /></td>
+            <td><image-button img="save" ng-show="tag.editing" ng-click="save()"></image-button>
+                <image-button img="undo" ng-show="tag.editing" ng-click="undo()"></image-button></td>
+        </tr>
+        </tbody>
+    </table>
+    <div style="width:100%" ng-show="top">
+        Press <b>0</b> to deselect all tags.
+    </div>
+
+</div>
+<div class="modalFooter">
+    <button ng-click="$close()">{{language.close}}</button>
+</div>

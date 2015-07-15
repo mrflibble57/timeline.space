@@ -1,0 +1,14 @@
+<div id="card{{data.id}}" class="card">
+    <div class="selected">
+        <div class="bg" ng-class="{'selected': data.meta.selected}">
+            <div class="cardInner">
+                <img ng-src="{{data.src}}" style="width: 232px; height: auto" ng-show="data.src.length > 0" />
+                <div class="cardText" ng-bind-html="text" ng-show="data.label.length > 0"></div>
+            </div>
+        </div>
+    </div>
+    <div class="cardType timeline" ng-show="data.items.length > 0" title="{{data.items.length}} children"></div>
+    <div class="cardTags">
+        <tiny-tag ng-repeat="tag in data.tags" ng-style="{'background-color': tagColour(tag)}"></tiny-tag>
+    </div>
+</div>

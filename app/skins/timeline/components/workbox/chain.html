@@ -1,0 +1,4 @@
+<div id="chain{{data.id}}" class="chain">
+    <div class="chainLine" ng-show="data.tags.length == 0"></div>
+    <div ng-repeat="tag in data.tags" class="chainLink" ng-style="{'background-color': tagColour(tag), 'height': linkHeight}"></div>
+</div>

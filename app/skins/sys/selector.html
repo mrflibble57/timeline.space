@@ -1,0 +1,12 @@
+<modal-header></modal-header>
+<div class="modalBody">
+    {{text}}<br /><br />
+    <select ng-model="selectedItem" ng-options="s.label for s in selections">
+        <option ng-show="allowEmpty" value="">Please select</option>
+    </select>
+</div>
+<div class="modalFooter">
+    <span class="modalFooterText" ng-show="!allowCancel">Selection is required</span>
+    <button ng-click="acceptHandler(selectedItem)">Okay</button>
+    <button ng-click="$close()" ng-show="allowCancel">Cancel</button>
+</div>

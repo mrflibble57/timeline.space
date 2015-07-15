@@ -1,0 +1,10 @@
+<div class="book">
+    <div ng-click="open()">
+        <div>{{project.title}}</div>
+        <div>{{project.description}}</div>
+    </div>
+    <div class="bookButtons">
+        <image-button img="edit" ng-click="rename(project)">Rename</image-button>
+        <image-button img="delete" ng-click="del(project)">Delete</image-button>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+
+<div id="home">
+    <div>
+        <center><div class="homeLogo"></div></center>
+    </div>
+    <div>
+        <p ng-show="!loggedIn">Please login with Google to authorise access.</p>
+        <button ng-click="login()" ng-show="!loggedIn">Authorise!</button>
+
+        <div ng-show="loggedIn">
+            <p>Welcome to Timeline Space, {{user.name.givenName}}</p>
+            <div class="title">My Projects</div>
+            <div class="loadingCover" ng-show="!loaded"><span>Loading Projects...</span></div>
+            <div id="shelf">
+                <div ng-show="loaded && projects.length == 0">Seems like you don't have anything here yet. Click on the button
+                below to create a New Project.</div>
+                <project-item ng-repeat="project in projects"></project-item>
+            </div>
+
+            <div class="buttonLine"><image-button
+                 title="Add Project" img="timeline" ng-click="addProject()">Create a new Project</image-button><image-button
+                 title="Revoke Access" img="cancel" ng-click="revoke()">Revoke Access</image-button>
+            </div>
+        </div>
+        <p><b>What is Timeline Space?</b></p>
+        <p>It's a timelining tool for plotting stories and managing events.</p>
+        <p>Think of it as being like <a target="_blank" href="https://www.literatureandlatte.com/scrivener.php">Scrivener</a>'s corkboard without the awful, non-intuitive
+        interface and bloated functionality, or like <a target="_blank" href="http://microsoft.com">Microsoft Project</a> with more free-form
+        construction.</p>
+
+        <p><b>How does it work?</b></p>
+        <p>You create the scenes on your timeline, filling them with as much detail as you want. You can tag them, and
+        connected them to other scenes in your timeline. And when you've completed your timeline, you can export it
+        into a new Google Doc, ready to be fleshed out as a full account.</p>
+
+        <p>This is an example of how you might use Timeline Space as a Timeline</p>
+        <img src="images/help/screenshot.png">
+        <p>You can see that the coloured tags indicate where each of the characters is going. You can also see
+        that the picture of Shelob has a symbol in the top left corner indicating that there are additional levels
+        in the timeline to drill down into, where you might describe the fight in more detail.</p>
+
+        <p>You don't <i>have</i> to use it this way. You can plonk stuff down in any way you like, in snowflakes or grid fashion, treating it just as a
+            giant space.</p>
+
+
+        <p><b>Okay, that's great, but why do I need to log in with Google?</b></p>
+        <p>You timelines are stored on your Google Drive account. Google Drive provides a special space for applications to stick their stuff,
+        so you won't find your files there in the normal view, but trust me, they're there. This means that you can access them through timeline.space
+            from any computer you log into your Google account with.</p>
+        <p>The images you put on your timelines are hosted on
+            <a target="_blank" href="imgur.com">imgur</a>.</p>
+        <p></p>They're both far, far more reliable than this little webpage, I'm sure. Nothing is
+            hosted on timeline.space, so all your IP is out of my hands.</p>
+        <p><b>What are you getting out of all this?</b></p>
+        <p>Love. Eternal love.</p>
+    </div>
+</div>

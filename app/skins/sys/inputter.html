@@ -1,0 +1,10 @@
+<modal-header></modal-header>
+<div class="modalBody">
+		   {{text}}<br /><br />
+		   <input ng-model="value" style="width: 100%" enter="accept(value)" focus />
+</div>
+<div class="modalFooter">
+	<span class="modalFooterText" ng-show="!allowCancel">Text is required</span>
+    <image-button img="okay" ng-click="accept(value)">{{language.okay}}</image-button>
+    <image-button img="cancel" ng-click="$close()" ng-show="allowCancel">{{language.cancel}}</image-button>
+</div>

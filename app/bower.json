@@ -1,0 +1,18 @@
+{
+  "name": "Timeline",
+  "version": "0.1",
+  "dependencies": {
+    "angular-cookies": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "angularLocalStorage": "~0.3.0",
+    "lz-string": "*",
+    "modernizr": "~2.8.3"
+  },
+  "resolutions": {
+    "angular-cookies": "~1.2.0-rc.2"
+  },
+  "devDependencies": {
+    "angularjs": "~1.4.1",
+    "jquery": "~2.1.4"
+  }
+}

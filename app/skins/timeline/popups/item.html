@@ -1,0 +1,21 @@
+<modal-header>Edit</modal-header>
+<div class="modalBody">
+    <label>Text</label><div style="float: right"><input type="checkbox" ng-model="item.meta.active"><span ng-click="item.meta.active = !item.meta.active" style="font-size: 12px">Include in export</span>
+    </div>
+    <textarea style="width: 410px; height: 140px" ng-model="item.label" focus ctrl-enter="complete(item)"></textarea>
+    <!--<editor field="label" ng-model="item.label" id="evLabel" style="height: 220px"></editor>-->
+
+    <img ng-src="{{item.src}}" style="width: 100%; height: auto;" load="reposition()" ng-show="item.src.length>0" />
+    <label>Image URL</label>
+    <input type="text" ng-model="item.src" style="width: 410px">
+</div>
+<div class="modalFooter">
+    <image-button img="okay" ng-click="complete(item)">{{language.okay}}</image-button>
+    <image-button img="timeline" ng-click="drill(item)">Drill</image-button>
+    <div class="uploadCover">
+        <image-button img="image">Upload</image-button>
+        <input type="file" file-change="upload">
+    </div>
+    <image-button img="delete" ng-click="remove(item)"><u>D</u>elete</image-button>
+    <image-button img="cancel" ng-click="$close()"><u>C</u>ancel</image-button>
+</div>

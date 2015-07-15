@@ -1,0 +1,22 @@
+<modal-header>Select Tags</modal-header>
+<div class="modalBody">
+    <table class="small">
+        <thead><tr>
+            <th>Key</th>
+            <th>Colour</th>
+            <th>Label</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tag in tags" ng-click="select(tag)">
+            <td>{{$index+1}}</td>
+            <td><tiny-tag colour="tag.colour" ng-style="{'background-color': tag.colour}"></tiny-tag></td>
+            <td><span>{{tag.label}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+    <p ng-show="tags.length == 0">You have not created any tags. Click on the Manage Tags button to create some.</p>
+</div>
+<div class="modalFooter">
+    <image-button img="okay" ng-click="$close()">{{language.okay}}</image-button>
+</div>

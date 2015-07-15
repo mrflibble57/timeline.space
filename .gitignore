@@ -1,0 +1,9 @@
+node_modules/
+dist/
+app/bower_components/
+.idea/
+.sass-cache/
+.tmp/
+.grunt/
+.ftpauth
+GruntFile.js

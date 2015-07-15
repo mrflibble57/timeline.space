@@ -1,0 +1,38 @@
+<div class="content" ng-show="ready">
+    <div id="header">
+        <div id="headerLogo" ng-click="home()"></div>
+        <div id="headerTitle" ng-click="upTimeline()">
+            <div>{{project.label}}</div>
+            <div>{{levels}}</div>
+        </div><br>
+        <div class="spacer">
+    </div><image-button-set ng-model="select"><image-button
+            title="Select (S)" data-index="1" img="select" key="s" ng-click="setSelect(1)"></image-button><image-button
+            title="MultiSelect (M)" data-index="2" img="multiselect" key="m" ng-click="setSelect(2)" disabled="top"></image-button><image-button
+            title="Chain (C)" data-index="3" img="links" key="c" ng-click="setSelect(3)" disabled="map.type == 3 || top"></image-button><image-button
+            title="Apply Tags (T)" data-index="4" img="singletag" key="t" ng-click="setSelect(4)" disabled="top"></image-button></image-button-set><div ng-show="select == 1 || select == 2" style="display:inline-block"><div class="spacer">
+    </div><image-button title="Cut (Ctrl-X)" img="cut" key="x" fn="#" ng-click="copy(true)" disabled="!selected">
+    </image-button><image-button title="Copy (Ctrl-C)" img="copy" key="c" fn="#" ng-click="copy()" disabled="!selected">
+    </image-button><image-button title="Paste (Ctrl-V)" img="paste" key="v" fn="#" ng-click="paste()" disabled="!cb">
+    </image-button><image-button title="Delete (delete)" img="delete" ng-click="deleteSelected()" disabled="!selected"></image-button></div><div ng-show="select == 4" style="display:inline-block"><div class="spacer">
+        </div><image-button
+            title="Tags (T)" data-index="4" img="tags" ng-click="selectTags()" disabled="top"><span class="tag" ng-show="selectedTag != null"><tiny-tag ng-style="{'background-color': selectedTag.colour}"></tiny-tag><div class="text" style="display: inline-block">{{selectedTag.label}}</div>
+    </span></image-button></div><div class="spacer"></div><image-button
+            img="tags" ng-click="manageTags()">Tags</image-button><image-button
+            img="export" ng-click="export()">Export</image-button><image-button
+            title="Help (Ctrl-H)" img="help" key="h" fn="#" ng-click="help()">Help</image-button>
+    </div>
+    <border ng-show="!top" id="borderTop" ng-attr-position="top"></border>
+    <border ng-show="!top" id="borderLeft" ng-attr-position="left"></border>
+    <div id="workbox">
+        <card id="card{{data.id}}" ng-repeat="data in map.items" ng-style="{'left': (map.meta.offset.x + data.meta.x) * map.meta.zoom +'px', 'top': (map.meta.offset.y + data.meta.y) * map.meta.zoom +'px', 'transform': 'scale(' + map.meta.zoom +')', '-webkit-transform': 'scale(' + map.meta.zoom +')'}"></card>
+        <chain ng-show="!top" ng-repeat="data in map.chains" ng-attr-zoom="{{map.meta.zoom}}"></chain>
+        <marker ng-show="!top" ng-repeat="data in map.markers" ng-attr-zoom="{{map.meta.zoom}}" ng-attr-offset-x="{{map.meta.offset.x}}" ng-attr-offset-y="{{map.meta.offset.y}}"></marker>
+        <div id="workboxOptions"><image-button
+                title="Drag (D)" img="drag" key="d" ng-click="setDrag(drag+1)" ng-hide="map.type != 3 && top">{{dragLabel}}</image-button><image-button
+                title="Zoom Out (-)" key-code="189" img="zoomOut" ng-click="zoomTo(-1)"></image-button><image-button
+                title="Zoom In (+)" key-code="187" img="zoomIn" ng-click="zoomTo(1)"></image-button>
+        </div>
+    </div>
+
+</div>

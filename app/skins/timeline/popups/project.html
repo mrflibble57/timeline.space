@@ -1,0 +1,11 @@
+<modal-header>{{project.title || "New Project"}}</modal-header>
+<div class="modalBody">
+    <label>Name</label>
+    <input ng-model="project.title" style="width: 100%" focus />
+    <label>Description</label>
+    <textarea ng-model="project.description" style="width: 100%; height: 60px"></textarea>
+</div>
+<div class="modalFooter">
+    <image-button img="okay" ng-click="complete(project)">Okay</image-button>
+    <image-button img="cancel" ng-click="$close()" ng-show="allowCancel">Cancel</image-button>
+</div>

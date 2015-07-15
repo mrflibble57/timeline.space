@@ -1,0 +1,5 @@
+<div class="popupOuter">
+    <div class="popupInner">
+        <div ng-repeat="lang in languages" class="selector" ng-class="lang.selected?'selected':''" ng-click="complete.go(lang.id)"><div>&#10004;</div><div>{{lang.label}}</div></div>
+    </div>
+</div>

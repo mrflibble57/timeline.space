@@ -1,0 +1,29 @@
+<modal-header>Manage Tags</modal-header>
+<div class="modalBody">
+    <table class="small">
+        <thead ng-show="tags.length > 0">
+        <tr>
+            <th>Key</th>
+            <th>Colour</th>
+            <th>Label</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tag in tags">
+            <td>{{$index+1}}</td>
+            <td><colour-picker colour="tag.colour"></colour-picker></td>
+            <td><input type="text" ng-model="tag.label" style="width: 120px" /></td>
+            <td><image-button img="delete" ng-click="remove(tag)">Delete</image-button></td>
+        </tr>
+        </tbody>
+    </table>
+    <p ng-show="tags.length == 0">You haven't created any tags yet.</p>
+
+</div>
+<div class="modalFooter">
+
+    <image-button img="okay" ng-click="save(tags)">{{language.okay}}</image-button>
+    <image-button img="singletag" ng-click="add()">Add</image-button>
+    <image-button img="cancel" ng-click="$close()">{{language.close}}</image-button>
+</div>
